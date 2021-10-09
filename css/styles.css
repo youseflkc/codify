@@ -31,6 +31,7 @@ h2,
 h3 {
   color: var(--color-headings);
   margin-bottom: 1rem;
+  line-height: 1.1;
 }
 
 h1 {
@@ -147,6 +148,7 @@ a {
 .list--tick {
   list-style-image: url(/images/tick.svg);
   padding-left: 3rem;
+  min-height: 24rem;
 }
 
 .list--tick .list__item {
@@ -182,12 +184,17 @@ a {
 
 .icon-container {
   display: inline-flex;
-  background-color: #f3f9f8;
+  background-color: #f6f5f5;
   width: 64px;
   height: 64px;
   border-radius: 100%;
   justify-content: center;
   align-items: center;
+}
+
+.icon-container--small {
+  width: 44px;
+  height: 44px;
 }
 
 .icon-container--accent {
@@ -207,6 +214,14 @@ a {
   text-align: center;
   margin: 1rem 0;
   white-space: nowrap;
+  outline: 0ch;
+}
+
+.btn .icon {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 1rem;
+  vertical-align: middle;
 }
 
 .btn--primary {
@@ -242,6 +257,11 @@ a {
   color: var(--color-headings);
 }
 
+.btn--stretched {
+  padding-left: 6rem;
+  padding-right: 6rem;
+}
+
 .btn--outline:hover {
   background-color: var(--color-headings);
   color: white;
@@ -267,7 +287,7 @@ a {
   color: var(--color-headings);
   font-size: 2rem;
   outline: 0;
-  padding: 1.5rem 3.5rem;
+  padding: 1.5rem 2rem;
 }
 
 .input::placeholder {
@@ -283,7 +303,9 @@ a {
 .input-group .input {
   border: 0;
   flex-grow: 1;
+  flex-shrink: 10;
   padding: 1.5rem 1rem;
+  width: 100%;
 }
 
 .input-group .btn {
@@ -319,8 +341,16 @@ a {
   color: white;
 }
 
+.card--primary .badge--primary {
+  background-color: #126de4;
+}
+
 .card--secondary .badge--secondary {
   background-color: #02cdf1;
+}
+
+.card .badge--small {
+  padding: 0.5rem 1rem;
 }
 
 /* plans */
@@ -356,6 +386,10 @@ a {
 
 .plan--popular .card__header {
   position: relative;
+}
+
+.plan--popular {
+  transform: scale(1.1);
 }
 
 .plan--popular .card__header::before {
@@ -504,5 +538,304 @@ a {
   }
   .testimonial {
     padding: 3rem;
+  }
+}
+/*callout*/
+
+.callout {
+  padding: 4rem;
+  border-radius: 5px;
+}
+
+.callout--primary {
+  background-color: var(--color-primary);
+}
+
+.callout__heading {
+  color: white;
+  margin-top: 0%;
+  font-size: 3rem;
+}
+
+.callout .btn {
+  justify-self: center;
+  align-self: center;
+}
+
+.callout__content {
+  text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .callout__content {
+    text-align: left;
+  }
+
+  .callout .grid--cols-2 {
+    grid-template-columns: 1fr auto;
+  }
+
+  .callout .btn {
+    justify-self: start;
+    margin-left: 4rem;
+  }
+}
+
+/*collapsible*/
+
+.collapsible__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.collapsible__heading {
+  margin-top: 0%;
+  font-size: 3rem;
+}
+
+.collapsible__chevron {
+  transform: rotate(-90deg);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.collapsible__content {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+.collapsible--expanded .collapsible__chevron {
+  transform: rotate(0);
+}
+
+.collapsible--expanded .collapsible__content {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+/*blocks*/
+
+.block {
+  --padding-vertical: 6rem;
+  padding: var(--padding-vertical) 2rem;
+}
+
+.block__header {
+  text-align: center;
+}
+
+.block__heading {
+  margin-top: 0%;
+}
+
+.block--dark {
+  background-color: black;
+  color: #7b858b;
+}
+
+.block--dark .block__heading {
+  color: white;
+}
+
+.block--skewed-right {
+  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 80%);
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+.block--skewed-left {
+  clip-path: polygon(0% 0%, 100% 0, 100% 80%, 0 100%);
+  padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+/*navs*/
+
+.nav {
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 1rem;
+}
+
+.nav__list {
+  width: 100%;
+  margin: 0%;
+}
+
+.nav__item {
+  padding: 0.5rem 2rem;
+  border-bottom: 1px solid #222;
+}
+
+.nav__item > a {
+  color: #d2d0db;
+  transition: color 0.3s;
+}
+
+.nav__item > a:hover {
+  color: white;
+}
+
+.nav__toggler {
+  opacity: 0.5;
+  transition: box-shadow 0.15s;
+  cursor: pointer;
+}
+
+.collapsible--expanded.nav__toggler {
+  opacity: 1;
+  box-shadow: 0 0 0 3px #666;
+  border-radius: 5px;
+}
+
+.collapsible--expanded ~ .collapsible__content {
+  max-height: 100vh;
+  opacity: 1;
+}
+
+.nav__brand {
+  transform: translateY(5px);
+}
+
+@media screen and (min-width: 768px) {
+  .nav__toggler {
+    display: none;
+  }
+
+  .nav__list {
+    width: auto;
+    display: flex;
+    font-size: 1.6rem;
+    max-height: 100%;
+    opacity: 1;
+  }
+
+  .nav__item {
+    border: 0;
+  }
+}
+
+/*hero*/
+
+.hero {
+  clip-path: polygon(0% 0%, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero__tagline {
+  font-size: 2rem;
+  color: #b9c3bf;
+  letter-spacing: 1px;
+  margin: 2rem 0 5rem;
+}
+
+.hero__image {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    padding-top: 0;
+  }
+
+  .hero__content {
+    text-align: left;
+    align-self: center;
+  }
+}
+
+/*block domain */
+
+.block-domain .input-group {
+  box-shadow: 0 0 30px 20px #e6ebee;
+  border: 0ch;
+  margin: 4rem auto;
+  max-width: 670px;
+}
+
+.block-domain .btn {
+  font-size: 1.5rem;
+  padding: 2rem;
+}
+
+.block-domain__prices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 6rem);
+  font-size: 2rem;
+  font-weight: 600;
+  justify-items: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .block-domain__prices {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  }
+
+  .block-domain .btn {
+    font-size: 1.6rem;
+    padding: 2rem 3rem;
+  }
+}
+
+/*plan block*/
+
+.plan-block {
+  margin: 5rem;
+}
+
+.grid.plan-block {
+  align-items: center;
+  gap: 8rem 4rem;
+}
+.plan-block .plan {
+  transition: transform 0.2s ease-out;
+}
+
+.plan-block .card {
+  max-width: 50rem;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .plan-block .plan:hover {
+    transform: scale(1.05);
+  }
+  .plan-block .plan--popular.plan:hover {
+    transform: scale(1.15);
+  }
+}
+
+/*features block*/
+.features-block {
+  gap: 4rem 2rem;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+}
+
+.features-block .media {
+  flex-direction: column;
+}
+
+.features-block .media__image {
+  margin: 1rem 3rem;
+}
+
+.features-block__image {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .features-block:nth-of-type(even) .media {
+    order: 2;
   }
 }
