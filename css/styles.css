@@ -15,6 +15,11 @@
 
 /* typography*/
 
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
 html {
   font-size: 62.5%;
 }
@@ -624,6 +629,7 @@ a {
 
 .block__header {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .block__heading {
@@ -635,17 +641,19 @@ a {
   color: #7b858b;
 }
 
-.block--dark .block__heading {
+.block--dark h1,
+.block--dark h2,
+.block--dark h3 {
   color: white;
 }
 
 .block--skewed-right {
-  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 80%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 90%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
 .block--skewed-left {
-  clip-path: polygon(0% 0%, 100% 0, 100% 80%, 0 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 90%, 0 100%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
@@ -724,11 +732,6 @@ a {
 }
 
 /*hero*/
-
-.hero {
-  clip-path: polygon(0% 0%, 100% 0, 100% 90%, 0 100%);
-}
-
 .hero__tagline {
   font-size: 2rem;
   color: #b9c3bf;
@@ -837,5 +840,38 @@ a {
 @media screen and (min-width: 768px) {
   .features-block:nth-of-type(even) .media {
     order: 2;
+  }
+}
+
+/*showcase block*/
+.showcase {
+  gap: 4rem;
+}
+
+.showcase__image {
+  width: 100%;
+}
+
+.showcase .media {
+  margin-bottom: 3rem;
+}
+
+.showcase-block .block__header {
+  margin-bottom: 5rem;
+}
+
+.showcase .icon--primary {
+  color: var(--color-primary);
+}
+
+@media screen and (min-width: 768px) {
+  .showcase__image {
+    width: auto;
+    max-width: 700px;
+    justify-self: end;
+  }
+
+  .showcase-block .grid {
+    grid-template-columns: 50% 50%;
   }
 }
