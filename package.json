@@ -1,5 +1,23 @@
 {
   "dependencies": {
     "normalize.css": "^8.0.1"
-  }
+  },
+  "name": "codify",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/youseflkc/codify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/youseflkc/codify/issues"
+  },
+  "homepage": "https://github.com/youseflkc/codify#readme",
+  "description": ""
 }

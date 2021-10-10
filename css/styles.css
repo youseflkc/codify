@@ -142,7 +142,6 @@ a {
 .list {
   list-style: none;
   padding-left: 0;
-  color: var(--color-headings);
 }
 
 .list--inline .list__item {
@@ -394,7 +393,7 @@ a {
 }
 
 .plan--popular {
-  transform: scale(1.1);
+  transform: scale(1.1) !important;
 }
 
 .plan--popular .card__header::before {
@@ -623,7 +622,7 @@ a {
 /*blocks*/
 
 .block {
-  --padding-vertical: 6rem;
+  --padding-vertical: 2rem;
   padding: var(--padding-vertical) 2rem;
 }
 
@@ -648,13 +647,25 @@ a {
 }
 
 .block--skewed-right {
-  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 90%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 95%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
 }
 
 .block--skewed-left {
-  clip-path: polygon(0% 0%, 100% 0, 100% 90%, 0 100%);
+  clip-path: polygon(0% 0%, 100% 0, 100% 95%, 0 100%);
   padding-bottom: calc(var(--padding-vertical) + 4rem);
+}
+
+@media screen and (min-width: 768px) {
+  .block--skewed-right {
+    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 90%);
+    padding-bottom: calc(var(--padding-vertical) + 4rem);
+  }
+
+  .block--skewed-left {
+    clip-path: polygon(0% 0%, 100% 0, 100% 90%, 0 100%);
+    padding-bottom: calc(var(--padding-vertical) + 4rem);
+  }
 }
 
 .container {
@@ -765,7 +776,7 @@ a {
 
 .block-domain .btn {
   font-size: 1.5rem;
-  padding: 2rem;
+  padding: 1.5rem;
 }
 
 .block-domain__prices {
@@ -776,9 +787,20 @@ a {
   font-weight: 600;
   justify-items: center;
   max-width: 700px;
+  color: var(--color-headings);
   margin: 0 auto;
 }
 
+@media screen and (max-width: 340px) {
+  .block-domain__prices,
+  .block-domain__prices .badge {
+    font-size: 1.5rem;
+  }
+
+  .block-domain .btn {
+    padding: 1rem;
+  }
+}
 @media screen and (min-width: 768px) {
   .block-domain__prices {
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
@@ -797,7 +819,6 @@ a {
 }
 
 .grid.plan-block {
-  align-items: center;
   gap: 8rem 4rem;
 }
 .plan-block .plan {
@@ -811,18 +832,17 @@ a {
 
 @media screen and (min-width: 1024px) {
   .plan-block .plan:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) !important;
   }
   .plan-block .plan--popular.plan:hover {
-    transform: scale(1.15);
+    transform: scale(1.15) !important;
   }
 }
 
 /*features block*/
 .features-block {
   gap: 4rem 2rem;
-  margin-top: 4rem;
-  margin-bottom: 6rem;
+  margin: 4rem 0;
 }
 
 .features-block .media {
@@ -880,6 +900,11 @@ a {
 .footer {
   text-align: center;
   background-color: #232323;
+  padding: 5rem 0;
+}
+
+.footer__heading {
+  font-size: 2rem;
 }
 
 .footer__list {
@@ -895,8 +920,9 @@ a {
 
 .footer__item {
   margin: 1.5rem 0;
-  padding: 1.5rem 0;
+  padding: 0.7rem 0;
   border-bottom: 1px solid;
+  font-size: 1.2rem;
 }
 
 .collapsible__content .footer__item a:hover {
@@ -915,10 +941,14 @@ a {
 
 .collapsible__content .footer__item {
   border: 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 @media screen and (min-width: 1024px) {
+  .footer {
+    padding: 10rem 0;
+  }
+
   .footer ul {
     order: 2;
   }
@@ -938,11 +968,11 @@ a {
     margin-right: 3rem;
   }
 
-  .footer__brand img{
+  .footer__brand img {
     width: 100%;
   }
 
-  .grid--cols-2 {
+  .footer .grid--cols-2 {
     grid-template-columns: 1fr 4fr;
   }
 
