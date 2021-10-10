@@ -19,5 +19,8 @@
     "url": "https://github.com/youseflkc/codify/issues"
   },
   "homepage": "https://github.com/youseflkc/codify#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  }
 }
